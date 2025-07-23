@@ -1,0 +1,2 @@
+add_library(CommandLineInterface CommandLineInterface.cpp)
+target_include_directories(CommandLineInterface PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
