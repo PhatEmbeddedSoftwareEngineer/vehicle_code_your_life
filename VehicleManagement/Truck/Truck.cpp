@@ -1,22 +1,29 @@
 #include "Truck.h"
 
-Truck::Truck(int id, const std::string& brand, int year, double loadCapacity) : id(id), brand(brand),year(year)
-{}
-
-double Truck::getLoadCapacity() const
+double Truck::getLoadCapacity() const 
 {
-    return loadCapacity;
+    return this->loadCapacity;
 }
+
 void Truck::setLoadCapacity(double tons)
 {
-    loadCapacity = tons;
+    this->loadCapacity = tons;
 }
 
-void Truck::displayInfo() const
+void Truck::displayInfo() const 
 {
-    std::cout << "Truck ID: " << id << "\n"
-              << "Brand: " << brand << "\n"
-              << "Year: " << year << "\n"
-              << "Load Capacity: " << loadCapacity << " tons\n";
+    std::cout << "ID: " << this->getID() << "\n";
+    std::cout << "Brand: " << this->getBrand() << "\n";
+    std::cout << "Years: " << this->getYear() << "\n";
+    std::cout << "Load Capacity: " << this->loadCapacity << "\n";
+}
+
+void Truck::saveToFile(std::ostream& os) 
+{
+    this->fileTruck.open("Truck.txt");
+    this->fileTruck << "ID: " << this->getID() << "\n";
+    this->fileTruck << "Brand: " << this->getBrand() << "\n";
+    this->fileTruck << "Years: " << this->getYear() << "\n";
+    this->fileTruck << "Load Capacity: " << this->loadCapacity << "\n";
 }
 
